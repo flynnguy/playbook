@@ -71,19 +71,6 @@ base_osx:
             - bash_gpg
             - hammerspoon
             - iterm2_shell_integration.bash
-        python3_packages:
-            - GitPython
-            - ipython
-            - virtualenv
-            - virtualenvwrapper
-        python_packages:
-            - GitPython
-            - grip
-            - ipython
-            - pip
-            - powerline-status
-            - psutil
-            - tmuxp
         launch_agents:
             - local.brew.update.plist
             - local.brew.cleanup.plist

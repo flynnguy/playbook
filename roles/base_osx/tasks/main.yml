@@ -1,5 +1,4 @@
 ---
 - include: common.yml
 - include: homebrew.yml
-- include: python.yml
 - include: vim.yml
