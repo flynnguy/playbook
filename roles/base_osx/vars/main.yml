@@ -29,6 +29,7 @@ base_osx:
             - git
             - glide
             - go
+            - gpg2
             - hg
             - hub
             - htop-osx
