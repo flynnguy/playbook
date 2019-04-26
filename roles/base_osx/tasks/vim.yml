@@ -1,0 +1,38 @@
+---
+- name: vim | Clone .vim/
+  git: repo=https://github.com/flynnguy/dotvim.git
+       dest={{ home }}/.vim/
+       track_submodules=yes
+       update=no
+
+- name: vim | autoload dir
+  file: path={{ home }}/.vim/autoload
+        state=directory
+
+- name: vim | Get Plug
+  get_url: url=https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+           dest={{ home }}/.vim/autoload/plug.vim
+
+- name: vim | vimrc symlink
+  file: path={{ home }}/.vimrc
+        src={{ home }}/.vim/vimrc
+        state=link
+        force=True
+
+- name: vim | Check if powerline-fonts are installed already
+  stat: path={{ home }}/src/powerline-fonts
+  register: powerline_fonts
+
+- name: vim | Get powerline-fonts
+  git: repo=https://github.com/powerline/fonts.git
+       dest={{ home }}/src/powerline-fonts
+       clone=no
+       update=no
+  when: powerline_fonts.stat.isdir is defined and powerline_fonts.stat.isdir == False
+
+- name: vim | Open powerline font dir if we checked it out
+  command: /usr/bin/open {{ home }}/src/powerline-fonts/SourceCodePro/
+  when: powerline_fonts.stat.isdir is defined and powerline_fonts.stat.isdir == False
+
+- name: vim | Install Plugins
+  command: vim +PlugInstall +qall

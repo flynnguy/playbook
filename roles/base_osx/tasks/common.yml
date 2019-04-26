@@ -1,0 +1,61 @@
+---
+- name: common | Create src folder
+  file: path={{ home }}/src state=directory
+
+- name: common | Create ~/.config/
+  file: path={{ home }}/.config/ state=directory
+
+- name: common | Create ~/.ssh/
+  file: path={{ home }}/.ssh/
+        state=directory
+        mode=0700
+
+- name: common | Clone dotfiles repo
+  git: repo=ssh://chrisflynn@git.flynnguy.com//home/chrisflynn/git.flynnguy.com/dotfiles.git/
+       dest={{ home }}/bin
+       update=yes
+
+- name: common | Create dotfiles
+  file: path={{ home }}/.{{ item }}
+        src={{ home }}/bin/dotfiles/{{ item }}
+        state=link
+        follow=False
+        force=True
+  with_items: "{{ base_osx.common.dotfiles }}"
+
+- name: common | Bash completion scripts                          
+  file: path=/usr/local/etc/bash_completion.d/{{ item }} 
+        src={{ home }}/bin/dotfiles/bash/{{ item }}
+        state=link
+        force=True
+  with_items:                                            
+      - git-completion.bash                              
+      - ssh-completion.bash                              
+
+- name: common | Add .ssh/config symlink                
+  file: path={{ home }}/.ssh/config
+        src={{ home }}/bin/dotfiles/ssh/config
+        state=link                             
+        force=True                             
+
+- name: common | Check for vcprompt
+  stat: path=/usr/local/bin/vcprompt
+  register: vcp                      
+
+- name: common | Install vcprompt          
+  command: "{{ home }}/bin/vcprompt-install"
+  when: vcp.stat.exists == False  
+
+- name: common | poweline config
+  file: path={{ home }}/.config/powerline
+        src={{ home }}/bin/dotfiles/powerline/
+        state=link                             
+        force=True                             
+
+- name: common | Custom Launchagents
+  file: path={{ home }}/Library/LaunchAgents/{{ item }}
+        src={{ home }}/bin/launchagents/{{ item }}
+        state=link
+        follow=False
+        force=True
+  with_items: base_osx.common.launch_agents

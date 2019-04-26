@@ -1,0 +1,6 @@
+---
+- hosts: dotfiles
+  sudo: yes
+  sudo_user: "{{ cflynn.user.name }}"
+  roles:
+      - dotfiles

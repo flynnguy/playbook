@@ -1,0 +1,9 @@
+[base_osx]
+localhost    ansible_connection=local
+
+[dotfiles]
+localhost    ansible_connection=local
+
+[osx:children]
+base_osx
+dotfiles

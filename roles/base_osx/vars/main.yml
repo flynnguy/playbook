@@ -1,0 +1,89 @@
+---
+system: osx
+os: osx
+home: "{{ lookup('env', 'HOME') }}"
+
+executables:
+    brew: /usr/local/bin/brew
+    bash: /usr/local/bin/bash
+
+user:
+    name: flynn
+    group: staff
+    shell: "{{ executables.bash }}"
+
+
+base_osx:
+    common:
+        homebrew_packages:
+            - ack
+            - autoconf
+            - bash
+            - cmake
+            - ctags-exuberant
+            - docker
+            - docker-compose
+            - docker-machine
+            - diff-so-fancy
+            - ffmpeg
+            - git
+            - glide
+            - go
+            - hg
+            - hub
+            - htop-osx
+            - jq
+            - ldns
+            - libav
+            - libjpeg
+            - libxml2
+            - liquidprompt
+            - mysql
+            - nmap
+            - pwgen
+            - git-hooks
+            - python3
+            - reattach-to-user-namespace
+            - ssh-copy-id
+            - syncthing
+            - the_silver_searcher
+            - tmux
+            - wget
+            - youtube-dl
+            - bash-completion
+            - gem-completion
+            - pip-completion
+            - rails-completion
+            - rake-completion
+            - yarn-completion
+            - ruby-completion
+            - cargo-completion
+            - rustc-completion
+            - django-completion
+
+        dotfiles:
+            - bashrc
+            - bash_profile
+            - tmux.conf
+            - tmuxp
+            - gitconfig
+            - gitignore
+            - bash_gpg
+            - hammerspoon
+            - iterm2_shell_integration.bash
+        python3_packages:
+            - GitPython
+            - ipython
+            - virtualenv
+            - virtualenvwrapper
+        python_packages:
+            - GitPython
+            - grip
+            - ipython
+            - pip
+            - powerline-status
+            - psutil
+            - tmuxp
+        launch_agents:
+            - local.brew.update.plist
+            - local.brew.cleanup.plist

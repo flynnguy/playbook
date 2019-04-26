@@ -1,0 +1,19 @@
+---
+- name: homebrew | initial brew update
+  homebrew: update_homebrew=yes
+  tags:
+      - homebrew
+
+- name: homebrew | brew update and upgrade packages
+  homebrew: update_homebrew=yes upgrade_all=yes
+  tags:
+      - homebrew
+
+- name: homebrew | Install homebrew items
+  homebrew:
+    name: "{{ item }}"
+    state: present
+  loop:
+    - "{{ base_osx.common.homebrew_packages }}"
+  tags:
+      - homebrew

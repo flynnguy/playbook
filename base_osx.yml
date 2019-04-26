@@ -1,0 +1,4 @@
+---
+- hosts: base_osx
+  roles:
+      - base_osx
