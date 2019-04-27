@@ -32,7 +32,6 @@ base_osx:
             - diff-so-fancy
             - django-completion
             - docker
-            - docker-completion
             - docker-compose
             - ffmpeg
             - flac
@@ -49,8 +48,6 @@ base_osx:
             - gnuradio
             - gnutls
             - go
-            - gpg-agent
-            - gqrx
             - gr-osmosdr
             - grip
             - gtk+
