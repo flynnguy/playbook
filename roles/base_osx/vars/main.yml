@@ -97,6 +97,7 @@ base_osx:
             - rake-completion
             - rbenv
             - readline
+            - qemu
             - reattach-to-user-namespace
             - redis
             - ripgrep
