@@ -12,55 +12,117 @@ user:
     group: staff
     shell: "{{ executables.bash }}"
 
-
 base_osx:
     common:
         homebrew_packages:
             - ack
+            - armmbed/formulae/arm-none-eabi-gcc
             - autoconf
+            - automake
+            - avrdude
             - bash
+            - bash-completion
+            - berkeley-db
+            - bitwarden-cli
+            - cargo-completion
             - cmake
+            - coreutils
+            - ctags
             - ctags-exuberant
-            - docker
-            - docker-compose
-            - docker-machine
             - diff-so-fancy
+            - django-completion
+            - docker
+            - docker-completion
+            - docker-compose
             - ffmpeg
+            - flac
+            - fontconfig
+            - freetype
+            - gcc
+            - gdb
+            - gem-completion
+            - geoip
+            - gettext
             - git
+            - git-hooks
             - glide
+            - gnuradio
+            - gnutls
             - go
-            - gpg2
+            - gpg-agent
+            - gqrx
+            - gr-osmosdr
+            - grip
+            - gtk+
+            - hackrf
             - hg
-            - hub
             - htop-osx
+            - hub
             - jq
             - ldns
             - libav
             - libjpeg
+            - librtlsdr
             - libxml2
             - liquidprompt
-            - mysql
+            - lua
+            - luajit
+            - makedepend
+            - mercurial
+            - mosquitto
+            - mpfr
+            - msgpack
+            - mysql-client
+            - ncurses
+            - neovim
             - nmap
-            - pwgen
-            - git-hooks
-            - python3
-            - reattach-to-user-namespace
-            - ssh-copy-id
-            - syncthing
-            - the_silver_searcher
-            - tmux
-            - wget
-            - youtube-dl
-            - bash-completion
-            - gem-completion
+            - node
+            - numpy
+            - picocom
+            - pinentry
             - pip-completion
+            - pkg-config
+            - platformio
+            - pre-commit
+            - pwgen
+            - pyenv
+            - pyenv-virtualenv
+            - pygobject
+            - pygtk
+            - pyqt
+            - python3
+            - qt
+            - qwt
             - rails-completion
             - rake-completion
-            - yarn-completion
+            - rbenv
+            - readline
+            - reattach-to-user-namespace
+            - redis
+            - ripgrep
+            - rtmpdump
+            - rubberband
+            - ruby-build
             - ruby-completion
-            - cargo-completion
             - rustc-completion
-            - django-completion
+            - sox
+            - sphinx-doc
+            - sqlite
+            - ssh-copy-id
+            - swig
+            - syncthing
+            - tag
+            - telnet
+            - theora
+            - tmux
+            - unrar
+            - watch
+            - wget
+            - wireshark
+            - yarn-completion
+            - youtube-dl
+            - zeromq
+            - zlib
 
         dotfiles:
             - bashrc
@@ -72,6 +134,19 @@ base_osx:
             - bash_gpg
             - hammerspoon
             - iterm2_shell_integration.bash
+        python3_packages:
+            - GitPython
+            - ipython
+            - virtualenv
+            - virtualenvwrapper
+        python_packages:
+            - GitPython
+            - grip
+            - ipython
+            - pip
+            - powerline-status
+            - psutil
+            - tmuxp
         launch_agents:
             - local.brew.update.plist
             - local.brew.cleanup.plist
