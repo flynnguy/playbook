@@ -52,6 +52,7 @@ base_osx:
             - grip
             - gtk+
             - hackrf
+            - hadolint
             - hg
             - htop-osx
             - hub
