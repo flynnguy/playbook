@@ -10,3 +10,26 @@
         state=directory
         mode=0700
 
+- name: common | Clone dotfiles repo
+  git: repo=http://10.1.0.84:2000/flynn/dotfiles.git/
+       dest={{ home }}/dotfiles
+       update=yes
+
+- name: common | Create ~/.gitignore/
+  file: path={{ home }}/.gitignore
+        src={{ home }}/dotfiles/gitignore
+        state=link
+        force=True
+
+- name: common | Create ~/.gitconfig/
+  file: path={{ home }}/.gitconfig
+        src={{ home }}/dotfiles/gitconfig
+        state=link
+        force=True
+
+- name: common | Create ~/.gitconfig/
+  file: path={{ home }}/.ssh/config
+        src={{ home }}/dotfiles/ssh_config
+        state=link
+        force=True
+        mode=0644
