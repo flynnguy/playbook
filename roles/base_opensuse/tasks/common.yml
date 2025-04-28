@@ -1,0 +1,12 @@
+---
+- name: common | Create src folder
+  file: path={{ home }}/src state=directory
+
+- name: common | Create ~/.config/
+  file: path={{ home }}/.config/ state=directory
+
+- name: common | Create ~/.ssh/
+  file: path={{ home }}/.ssh/
+        state=directory
+        mode=0700
+

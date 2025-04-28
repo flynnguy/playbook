@@ -1,0 +1,4 @@
+---
+- hosts: base_opensuse
+  roles:
+      - base_opensuse

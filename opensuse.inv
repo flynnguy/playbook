@@ -1,0 +1,9 @@
+[base_opensuse]
+localhost    ansible_connection=local
+
+[dotfiles]
+localhost    ansible_connection=local
+
+[opensuse:children]
+base_opensuse
+dotfiles

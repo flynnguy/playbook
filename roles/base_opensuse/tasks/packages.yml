@@ -1,0 +1,11 @@
+---
+- name: packages | Install zypper items
+  become: true
+  zypper:
+    name: "{{ item }}"
+    state: latest
+    update_cache: true
+  loop:
+    - "{{ base_opensuse.common.packages }}"
+  tags:
+      - packages

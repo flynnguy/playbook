@@ -1,0 +1,32 @@
+---
+system: opensuse
+os: opensuse
+home: "{{ lookup('env', 'HOME') }}"
+
+executables:
+    zsh: /usr/bin/zsh
+
+user:
+    name: flynn
+    group: staff
+    shell: "{{ executables.zsh }}"
+
+base_opensuse:
+    common:
+        packages:
+            - atuin
+            - fzf
+            - git
+            - hub
+            - inkscape
+            - jq
+            - kicad
+            - pyenv
+            - ripgrep
+            - python3-neovim
+            - tree-sitter
+            - zig
+
+        dotfiles:
+            - gitconfig
+            - gitignore
