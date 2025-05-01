@@ -9,3 +9,12 @@
     - "{{ base_opensuse.common.packages }}"
   tags:
       - packages
+
+- name: packages | Install flatpak items
+  community.general.flatpak:
+    name: "{{ item }}"
+    remote: flathub
+    state: present
+    method: system
+  loop:
+    - "{{ base_opensuse.common.flatpak }}"

@@ -14,19 +14,41 @@ user:
 base_opensuse:
     common:
         packages:
-            - atuin
-            - fzf
-            - git
-            - hub
-            - inkscape
-            - jq
-            - kicad
-            - pyenv
-            - ripgrep
-            - python3-neovim
-            - tree-sitter
-            - zig
+          - albert
+          - atuin
+          - audacity
+          - darktable
+          - discord
+          - diff-so-fancy
+          - fzf
+          - git
+          - grub-customizer
+          - hub
+          - inkscape
+          - jq
+          - kicad
+          - pdfarranger
+          - proton-vpn
+          - pyenv
+          - python3-neovim
+          - qbittorrent
+          - ripgrep
+          - steam
+          - timeshift
+          - tree-sitter
+          - yt-dlp
+          - zellij
+          - zellij-zsh-completion
+          - zig
+
+        flatpak:
+          - com.plexamp.Plexamp
+          - md.obsidian.Obsidian.Locale
+          - io.gitlab.news_flash.NewsFlash
+          - org.signal.Signal
+          - im.riot.Riot
+          - com.usebottles.bottles.Locale
 
         dotfiles:
-            - gitconfig
-            - gitignore
+          - gitconfig
+          - gitignore

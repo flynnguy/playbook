@@ -33,3 +33,15 @@
         state=link
         force=True
         mode=0644
+
+- name: common | Create zellij config
+  file: path={{ home }}/.config/zellij/config.kdl
+        src={{ home }}/dotfiles/zellij_config.kdl
+        state=link
+        force=True
+
+- name: common | Download Obsidian
+  ansible.builtin.get_url: 
+        url=https://github.com/obsidianmd/obsidian-releases/releases/download/v1.8.10/Obsidian-1.8.10.AppImage
+        dest={{ home }}/.local/bin/
+        mode='0755'
