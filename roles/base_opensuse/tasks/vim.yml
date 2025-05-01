@@ -1,4 +1,8 @@
 ---
+- name: common | Create ~/.ssh/
+  file: path={{ home }}/.local/share/nvim/site/autoload
+        state=directory
+
 - name: vim | Clone .vim/
   git: repo=https://github.com/flynnguy/neovim_config.git
        dest={{ home }}/.vim/
